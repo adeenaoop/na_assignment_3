@@ -72,7 +72,7 @@ def order_of_convergence(iteration_data, root):
 
     return alpha
 
-main():
+def main():
     m = int(input("Enter the multiplicity of the root: "))
     x0 = float(input("Enter the initial guess x0: "))
     tolerance = float(input("Enter the tolerance ε: "))
