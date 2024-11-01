@@ -27,6 +27,7 @@ def newton_method(f, f_prime, root, m, tolerance, max_iterations=100):
     num_iterations = 0
     iteration_data = []
 
+    start_time = time.time()
     while True:
         f_val, f_prime_val = f(root), f_prime(root)
 
@@ -54,7 +55,7 @@ def newton_method(f, f_prime, root, m, tolerance, max_iterations=100):
         if num_iterations > max_iterations:
             print("Maximum iterations exceeded! The method did not converge :(")
             break
-
+    cpu_time = time.time() - start_time
     return root, num_iterations, iteration_data
 
 def order_of_convergence(iteration_data, root):
@@ -89,7 +90,7 @@ main():
     root, iterations, iteration_data = newton_method(f, f_prime, x0, m, tolerance)
 
     # Print results
-    print(f"Root: {root}, Iterations: {iterations}")
+    print(f"Root: {root}, Iterations: {iterations}, CPU Time: {cpu_time:.6f} seconds")
 
     # Calculate order of convergence
     alpha = order_of_convergence(iteration_data, root)
